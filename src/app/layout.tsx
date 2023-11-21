@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import ReduxProvider from '@/redux/ReduxProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-slate-100 mr-[50%]`} >
+
+        <ReduxProvider>
+              {children}
+        </ReduxProvider>
+        
+    
+        {/* <link href="/path/to/flowbite.css" rel="stylesheet" /> */}
+
+{/* <script src="/path/to/flowbite.js"></script> */}
+        
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+        </body>
     </html>
   )
 }
